@@ -56,3 +56,4 @@ export function expressAuthentication(
 //TODO: Follow this
 //https://github.com/WillStreeter/ws-node-demo
 //https://github.com/WillStreeter/ws-node-demo/blob/00f69bb083822a17e0538a0d15fe8ab28c3aa195/src/business-layer/security/token-helpers.ts#L20
+//https://stackabuse.com/authentication-and-authorization-with-jwts-in-express-js/
