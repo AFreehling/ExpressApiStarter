@@ -8,10 +8,12 @@ import {
   Query,
   Route,
   SuccessResponse,
+  Security
 } from "tsoa";
 import { User } from "./user";
 import { UsersService, UserCreationParams } from "./usersService";
 
+@Security('api_key')
 @Route("users")
 export class UsersController extends Controller {
   @Get("{userId}")

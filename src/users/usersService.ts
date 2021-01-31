@@ -11,6 +11,7 @@ export class UsersService {
       name: name ?? "Jane Doe",
       status: "Happy",
       phoneNumbers: [],
+      isLoggedIn: true
     };
   }
 
@@ -18,6 +19,7 @@ export class UsersService {
     return {
       id: Math.floor(Math.random() * 10000), // Random
       status: "Happy",
+      isLoggedIn: false,
       ...userCreationParams,
     };
   }
