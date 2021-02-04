@@ -10,15 +10,15 @@ import {
   SuccessResponse,
   Security
 } from "tsoa";
-import { User } from "./user";
-import { UsersService, UserCreationParams } from "./usersService";
+import { User } from "../models/user/user";
+import { UsersService, UserCreationParams } from "../services/user/usersService";
 
-@Security('api_key')
+// @Security('api_key') - will implement jwt auth later
 @Route("users")
 export class UsersController extends Controller {
   @Get("{userId}")
   public async getUser(
-    @Path() userId: number,
+    @Path() userId: string,
     @Query() name?: string
   ): Promise<User> {
     return new UsersService().get(userId, name);
@@ -32,5 +32,11 @@ export class UsersController extends Controller {
     this.setStatus(201); // set return status 201
     new UsersService().create(requestBody);
     return;
+  }
+
+  @Security('api_key')
+  @Get("{userId}/test")
+  public async testUser(@Path() userId: string ) : Promise<User>{
+    return new UsersService().get(userId, 'test');
   }
 }

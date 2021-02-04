@@ -1,5 +1,5 @@
 {
-  "name": "dockerTest",
+  "name": "express-api-starter",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",

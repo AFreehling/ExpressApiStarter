@@ -1,11 +1,11 @@
-import { UsersService } from "../users/usersService"
-import { User } from "../users/user"
+import { UsersService } from "../user/usersService"
+import { User } from "../../models/user/user"
 
-export class SecurityService {
+export class AuthService {
     
     async getAuthorizedUser(auth:any):Promise<any> {
         var userService = new UsersService;
-        let authorizedUserResult = await userService.get(1, "test");
+        let authorizedUserResult = await userService.get('1', "test");
         if(!authorizedUserResult){
               return  {thrown:true, status:401,  message: "no username "+auth.username+" currently exist"};
         }

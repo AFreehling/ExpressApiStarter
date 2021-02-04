@@ -1,17 +1,17 @@
 import { Route, Post, Body, Controller } from 'tsoa';
-import { IUserLoginRequest } from './IUserLoginRequest';
-import { IUserResponse }  from './IUserResponse';
+import { IUserLoginRequest } from '../models/user/IUserLoginRequest';
+import { IUserResponse }  from '../models/user/IUserResponse';
 //import { IMessageResponse } from './IMessageResponse'
-import { createAuthToken } from './token-helpers';
-import { SecurityService } from './securityService';
-import { User } from '../users/user';
+import { createAuthToken } from '../utilities/token-helpers';
+import { AuthService } from '../services/auth/authService';
+import { User } from '../models/user/user';
 //import { logger } from '../../middleware/common/logging';
 
 
 @Route('Authorizations')
 export class AuthorizationsController extends Controller {
 
-  userDataAgent = new SecurityService();
+  userDataAgent = new AuthService();
 
   @Post('Login')
   public async login(@Body() request: IUserLoginRequest): Promise<IUserResponse> {
